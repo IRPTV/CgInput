@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4856376C-0A67-4EE8-9029-1D0F14580068}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CgInput</RootNamespace>
+    <AssemblyName>CgInput</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CallBack.aspx" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\main.css" />
+    <Content Include="img\arrow.png" />
+    <Content Include="img\bg.jpg" />
+    <Content Include="img\glyphicons-halflings-white.png" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\header.png" />
+    <Content Include="img\logo.png" />
+    <Content Include="index.html" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\jquery-1.9.1.min.js" />
+    <Content Include="js\jquery.scrollTo.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\modernizr-2.6.2-respond-1.1.0.min.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="login.html" />
+    <Content Include="SignOut.aspx" />
+    <Content Include="Theme\css\bootstrap.min.css" />
+    <Content Include="Theme\css\Cal-main.css" />
+    <Content Include="Theme\css\icons-ie7.min.css" />
+    <Content Include="Theme\css\icons.min.css" />
+    <Content Include="Theme\css\js-persian-cal.css" />
+    <Content Include="Theme\css\jspc-gray.css" />
+    <Content Include="Theme\css\jspc-peach.css" />
+    <Content Include="Theme\css\jspc-royal_blue.css" />
+    <Content Include="Theme\css\main.css" />
+    <Content Include="Theme\font\fontawesome-webfont.svg" />
+    <Content Include="Theme\Icon\add.png" />
+    <Content Include="Theme\Icon\amib.png" />
+    <Content Include="Theme\Icon\Comment.png" />
+    <Content Include="Theme\Icon\CommentUnActive.png" />
+    <Content Include="Theme\Icon\Config.png" />
+    <Content Include="Theme\Icon\Delete.png" />
+    <Content Include="Theme\Icon\down_green.png" />
+    <Content Include="Theme\Icon\edit.png" />
+    <Content Include="Theme\Icon\globe_Gray.png" />
+    <Content Include="Theme\Icon\globe_Green.png" />
+    <Content Include="Theme\Icon\image.png" />
+    <Content Include="Theme\Icon\list.png" />
+    <Content Include="Theme\Icon\Lock.png" />
+    <Content Include="Theme\Icon\No.png" />
+    <Content Include="Theme\Icon\pcal.png" />
+    <Content Include="Theme\Icon\reload.png" />
+    <Content Include="Theme\Icon\Save.png" />
+    <Content Include="Theme\Icon\unlock.png" />
+    <Content Include="Theme\Icon\up_green.png" />
+    <Content Include="Theme\Icon\video.png" />
+    <Content Include="Theme\Icon\Yes.png" />
+    <Content Include="Theme\img\browse.png" />
+    <Content Include="Theme\img\lock.png" />
+    <Content Include="Theme\img\login-corner.png" />
+    <Content Include="Theme\img\logo-small.png" />
+    <Content Include="Theme\img\Print.png" />
+    <Content Include="Theme\js\js-persian-cal.min.js" />
+    <Content Include="Theme\js\main.js" />
+    <Content Include="Theme\js\vendor\bootstrap.min.js" />
+    <Content Include="Theme\js\vendor\jquery-1.9.1.min.js" />
+    <Content Include="Theme\js\vendor\modernizr-2.6.2-respond-1.1.0.min.js" />
+    <Content Include="Users.aspx" />
+    <Content Include="Users_Insert.aspx" />
+    <Content Include="wc.asmx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CallBack.aspx.cs">
+      <DependentUpon>CallBack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CallBack.aspx.designer.cs">
+      <DependentUpon>CallBack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DateConversion.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyDB.cs">
+      <DependentUpon>MyDB.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyDB.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignOut.aspx.cs">
+      <DependentUpon>SignOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignOut.aspx.designer.cs">
+      <DependentUpon>SignOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users_Insert.aspx.cs">
+      <DependentUpon>Users_Insert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users_Insert.aspx.designer.cs">
+      <DependentUpon>Users_Insert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="wc.asmx.cs">
+      <DependentUpon>wc.asmx</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MyDB.xsc">
+      <DependentUpon>MyDB.xsd</DependentUpon>
+    </Content>
+    <Content Include="font\BKoodakBold.eot" />
+    <Content Include="font\BKoodakBold.ttf" />
+    <Content Include="font\BKoodakBold.woff" />
+    <None Include="MyDB.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MyDB.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="MyDB.xss">
+      <DependentUpon>MyDB.xsd</DependentUpon>
+    </Content>
+    <Content Include="Theme\font\fontawesome-webfont.eot" />
+    <Content Include="Theme\font\fontawesome-webfont.ttf" />
+    <Content Include="Theme\font\fontawesome-webfont.woff" />
+    <Content Include="Theme\font\FontAwesome.otf" />
+    <Content Include="Theme\Web.config" />
+    <None Include="Properties\PublishProfiles\CG.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2660</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63864/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+    <title>iFilm Crawl</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="css/main.css?20140715" />
+    <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="span8">
+                    <div id="title" class="pull-right">نرم افزار مدریت کرال</div>
+                </div>
+                <div class="span4">
+                    <div id="logo" class="pull-left"><h1>iFilm</h1></div>
+                    <div id="signout" class="pull-left"><a href="/signout.aspx">خروج</a></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="lookups">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <form id="item-lookup" class="pull-left" method="get" action="#">
+                        <fieldset>
+                            <table class="table table-lookup">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="control-group">
+                                                <label class="control-label" for="datepicker">تاریخ</label>
+                                                <div class="controls">
+                                                    <input type="text" name="date" class="input-small" id="datepicker" />
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="control-group">
+                                                <label class="control-label" for="language">زبان</label>
+                                                <div class="controls">
+													<!-- <input type="hidden" name="language" id="language" value="" />
+													<input type="text" name="userlang" id="userlang" disabled value="" class="input-small" /> -->
+													<select class="input-small" name="Lang" id="language">
+                                                        <option value="1">فارسی</option>
+                                                        <option value="2">عربی</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="control-group">
+                                                <label class="control-label" for="crawl">نوع کرال</label>
+                                                <div class="controls">
+                                                    <select class="input-small" name="crawl" id="crawl" disabled></select>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="control-group">
+                                                <label class="control-label" for="times">ساعت</label>
+                                                <div class="controls">
+                                                    <select class="input-small" name="times" id="times" disabled></select>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="buttons pull-right">
+                                                <a href="#" id="publish" class="pull-right btn btn-success">
+                                                    <i class="icon-chevron-up icon-white"></i>&nbsp;ارسال نهایی
+                                                </a>
+                                                <a href="#" id="duplicate" class="pull-left btn btn-info">
+                                                    <i class="icon-file icon-white"></i>&nbsp;کپی
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td colspan="2">
+                                            <div class="buttons pull-left">
+                                                <a href="#" id="loadlist" class="pull-left btn btn-warning">
+                                                    <i class="icon-th-list icon-white"></i>&nbsp;مشاهده
+                                                </a>
+                                                <label class="pull-left" style="font-size: 16px;">
+                                                    <input type="checkbox" name="show-deleted" id="show-deleted" />
+                                                    حذف ها
+                                                    &nbsp;
+                                                </label>
+                                                <label class="pull-left" style="font-size: 16px;">
+                                                    <input type="checkbox" title="درصورتی که تیک خورده باشد بعد از ثبت به آخر صفحه میرود" name="show-pageend" id="show-pageend" />
+                                                    انتها
+                                                    &nbsp;
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>
+                    </form>
+                    <form id="add-item" class="pull-right" method="get" action="#">
+                        <fieldset>
+                            <table class="table table-item">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <label id="text-label" for="text">متن&nbsp;<span class="hide">(افزودن متن به بعد از آیتم: <span></span>)</span></label>
+                                            <input type="text" placeholder="" class="input-text" name="text" id="text" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="colorpicker pull-left">
+                                                <a href="#" class="black selected" data-color="#000000">مشکی (پیش فرض)</a>
+                                                <a href="#" class="red" data-color="#ff0000">قرمز</a>
+                                            </div>
+                                            <div id="cancel-insert" class="pull-right hide" data-id="">
+                                                <a href="#" class="btn btn-danger"><span class="icon-remove icon-white"></span>&nbsp;انصراف</a>
+                                            </div>
+                                            <div id="update" class="buttons pull-left">
+
+                                                <a href="#" class="btn btn-primary" id="insert">
+                                                    <i class="icon-plus icon-white"></i>&nbsp;ثبت عبارت
+                                                </a>
+                                                <a id="insert-circle" href="#" class="btn btn-circle">
+                                                    <span class="circle">&#8226;</span>
+                                                    <span class="text">انتهای جمله</span>
+                                                </a>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="main">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    <table class="table table-items table-hover table-striped table-bordered table-condensed">
+                        <thead>
+                            <tr>
+                                <th colspan="100%">
+                                    <div class="last-publish pull-right">
+                                        <ul>
+                                            <li><strong>آخرین ارسال: </strong>&nbsp;&nbsp;<span id="last-publish">----/--/-- --:--:--</span></li>
+                                            <li><strong>توسط: </strong>&nbsp;&nbsp;<span id="last-publish-by">----</span></li>
+                                            <li><strong>زمان تقریبی پخش:</strong>&nbsp;&nbsp;<span id="play-time">--:--:--</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="options pull-left">
+                                        <a href="#" class="btn btn-danger disabled" id="delete-all">
+                                            <span class="icon-remove icon-white"></span>&nbsp;
+                                            حذف همه
+                                        </a>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="modals">
+        <div id="duplicate-modal" class="modal hide fade">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <div class="clearfix"></div>
+            </div>
+            <div class="modal-body">
+                <table class="table table-duplicate">
+                    <tbody>
+                        <tr>
+                            <td colspan="4">
+                                <div class="alert alert-success">لطفاً تاریخ مقصد را انتخاب کنید:</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label" for="sdate">تاریخ مبداء</label>
+                                    <div class="controls">
+                                        <input type="text" name="ssdate" id="ssdate" class="input-small" disabled />
+                                        <input type="hidden" name="sdate" id="sdate" value="" />
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <!-- <div class="control-group">
+                                    <label class="control-label" for="slang">زبان مبداء</label>
+                                    <div class="controls">
+                                       <input type="text" name="sslang" id="sslang" class="input-small" disabled />
+                                        <input type="hidden" name="slang" id="slang" value="" />
+                                    </div>
+                                </div> -->
+                            </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label" for="scrawl">نوع کرال مبداء</label>
+                                    <div class="controls">
+                                        <input type="text" name="sscrawl" id="sscrawl" class="input-small" disabled />
+                                        <input type="hidden" name="scrawl" id="scrawl" value="" />
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label" for="stimes">ساعت مبداء</label>
+                                    <div class="controls">
+                                        <input type="text" name="sstimes" id="sstimes" class="input-small" disabled />
+                                        <input type="hidden" name="stimes" id="stimes" value="" />
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label" for="ddate">تاریخ</label>
+                                    <div class="controls">
+                                        <input type="text" name="ddate" class="input-small" id="ddatepicker" />
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <!-- <div class="control-group">
+                                    <label class="control-label" for="dLang">زبان</label>
+                                    <div class="controls">
+                                        <select class="input-small" name="dLang" id="dlanguage">
+                                            <option value="1">فارسی</option>
+                                            <option value="2">عربی</option>
+                                            <option value="3" disabled>انگلیسی</option>
+                                        </select>
+                                    </div>
+                                </div> -->
+                            </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label" for="dcrawl">نوع کرال</label>
+                                    <div class="controls">
+                                        <select class="input-small" name="dcrawl" id="dcrawl" data-type="duplicate" disabled></select>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="control-group">
+                                    <label class="control-label" for="dtimes">ساعت</label>
+                                    <div class="controls">
+                                        <select class="input-small" name="dtimes" id="dtimes" disabled></select>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <div class="pull-left">
+                    <a href="#" id="do-duplicate" class="btn btn-success">کپی</a>
+                    <a href="#" id="cancel-duplicate" class="btn">لغو</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="footer"></footer>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/main.js?20140716"></script>
+</body>
+</html>
