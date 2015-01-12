@@ -426,6 +426,13 @@ $(function () {
         if (OptionId != 0) {
             loadCrawls(OptionId, $crawl);
         }
+        if (OptionId == 3) {
+            $("body").addClass("ltr");
+        }
+        else
+        {
+            $("body").removeClass("ltr");
+        }
 		
 		checkUserAccessToLang();
     });
@@ -678,8 +685,8 @@ $(function () {
             url: "/wc.asmx/IsUserArabic",
             contentType: "application/json; charset=utf-8",
             success: function (data) {
-				var isArabicSelected = (parseInt($("#language").find("option:selected").val()) == 1) ? true : false;
-                if (data.d === isArabicSelected || !data.d === !isArabicSelected) {
+                var isArabicSelected = parseInt($("#language").find("option:selected").val());
+                if (data.d === isArabicSelected) {
 				/*
 					$("#insert").show();
 					$("#text").removeAttr('disabled');
@@ -714,23 +721,33 @@ $(function () {
             contentType: "application/json; charset=utf-8",
             success: function (data) {
                 // alert(data.d);
-                if (data.d) {
-                    //  alert('Farsi');
-                    $("#language")[0].selectedIndex = 0;
-					$("#userlang").val('فارسی');
-					// $("#language").val('1');
-                }
-                else {
-                    //alert('Arabic');
-                    $("#language")[0].selectedIndex = 1;
-					$("#userlang").val('عربی');
-					// $("#language").val('2');
 
+                switch (data.d)
+                {
+                    case 1:
+                        $("#language")[0].selectedIndex = 0;
+                        $("#userlang").val('فارسی');                		
+                        break;
+                    case 2:
+                        $("#language")[0].selectedIndex = 1;
+                        $("#userlang").val('عربی');
+                        break;
+                    case 3:
+                        $("#language")[0].selectedIndex = 2;
+                        $("#userlang").val('English');
+                        break;
                 }
+              
                 var OptionId = parseInt($("#language").find("option:selected").val());
                 // var OptionId = parseInt($("#language").val());
                 if (OptionId != 0) {
                     loadCrawls(OptionId, $crawl);
+                }
+                if (OptionId == 3) {
+                    $("body").addClass("ltr");
+                }
+                else {
+                    $("body").removeClass("ltr");
                 }
 				checkUserAccessToLang();
             }

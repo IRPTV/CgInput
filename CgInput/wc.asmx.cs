@@ -224,6 +224,10 @@ namespace CgInput
                     {
                         Lang = "Farsi";
                     }
+                    if (crwals_Dt[i]["Lang"].ToString() == "3")
+                    {
+                        Lang = "English";
+                    }
 
                     DirectoryInfo CrDr = new DirectoryInfo(ConfigurationManager.AppSettings["FilesPath"].ToString() + Lang + "\\" + DirDate + "\\" + DirHour + "\\");
                     if (!CrDr.Exists)
@@ -389,10 +393,22 @@ namespace CgInput
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = false)]
-        public bool IsUserArabic()
+        public int IsUserArabic()
         {
-            return Roles.IsUserInRole(User.Identity.Name, "Farsi");
-          
+            int retval = 0;
+            if(Roles.IsUserInRole(User.Identity.Name, "Farsi"))
+            {
+                retval= 1;
+            }
+            if (Roles.IsUserInRole(User.Identity.Name, "Arabic"))
+            {
+                retval = 2;
+            }
+            if (Roles.IsUserInRole(User.Identity.Name, "English"))
+            {
+                retval = 3;
+            }
+            return retval;
         }
 
 

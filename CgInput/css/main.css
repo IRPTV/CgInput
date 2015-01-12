@@ -853,3 +853,9 @@ td.priority input { text-align: center; }
 .last-publish ul li { display: inline-block; margin-left: 10px; }
 .last-publish ul li span { color: #000; }
 #text-label span { font-size: 12px; color: gray; font-family: Tahoma;  }
+
+body.ltr #main table tbody { direction: ltr; text-align: left !important; }
+body.ltr #main table tr { direction: ltr; text-align: left !important; }
+body.ltr #main table td { direction: ltr; text-align: left !important; }
+
+body.ltr #text { direction: ltr; text-align: left; }
