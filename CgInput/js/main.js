@@ -530,9 +530,10 @@ $(function () {
                 code: $parentRow.find('td.text').css('color')
 					, black: (color == '#000000') ? ' selected' : ''
 					, red: (color == '#ff0000') ? ' selected' : ''
+                , yellow: (color == '#ffea00') ? ' selected' : ''
             };
             $parentRow.find('td.priority').html('<input type="text" class="input-mini new-order" value="' + order + '" name="nord" />');
-            $parentRow.find('td.text').html('<div class="form-inline"><span style="display:inline-block;position:relative;"><input type="text" class="input-xxlarge new-text" value="' + text + '" name="ntext" /><div class="colorpicker pull-left"><a href="#" class="black' + colors.black + '" data-color="#000000">مشکی (پیش فرض)</a><a href="#" class="red' + colors.red + '" data-color="#ff0000">قرمز</a></div></span><a href="#" class="btn btn-success finish-edit"><i class="icon-refresh icon-white"></i>&nbsp;اعمال تغییرات</a><a href="#" class="btn btn-danger cancel-edit">لغو</a></div>');
+            $parentRow.find('td.text').html('<div class="form-inline"><span style="display:inline-block;position:relative;"><input type="text" class="input-xxlarge new-text" value="' + text + '" name="ntext" /><div class="colorpicker pull-left"><a href="#" class="black' + colors.black + '" data-color="#000000">مشکی (پیش فرض)</a><a href="#" class="red' + colors.red + '" data-color="#ff0000">قرمز</a><a href="#" class="yellow' + colors.yellow + '" data-color="#ffea00">قرمز</a></div></span><a href="#" class="btn btn-success finish-edit"><i class="icon-refresh icon-white"></i>&nbsp;اعمال تغییرات</a><a href="#" class="btn btn-danger cancel-edit">لغو</a></div>');
             initColorpicker();
             $parentRow.delegate("a.finish-edit", 'click', function (event) {
                 params = {
