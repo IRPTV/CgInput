@@ -861,3 +861,4 @@ body.ltr #main table tr { direction: ltr; text-align: left !important; }
 body.ltr #main table td { direction: ltr; text-align: left !important; }
 
 body.ltr #text { direction: ltr; text-align: left; }
+body.ltr #main .colorpicker { left: auto !important; right: 0; }
