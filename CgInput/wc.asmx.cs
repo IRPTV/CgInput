@@ -268,7 +268,7 @@ namespace CgInput
                         {
                             if (Itm.TEXT.Trim() != "^^")
                             {
-                                Sw.Write("<font face='ifilm' color='0x" + Itm.COLOR.Replace("#","").Replace("ff0000","9e1300") + "'>" + Itm.TEXT.Replace("$$", "\"").Trim() + "</font>");
+                                Sw.Write("<font face='ifilm' color='0x" + Itm.COLOR.Replace("#","").Replace("ff0000","9e1300").Replace("undefined","000000") + "'>" + Itm.TEXT.Replace("$$", "\"").Trim() + "</font>");
                             }
                             else
                             {
