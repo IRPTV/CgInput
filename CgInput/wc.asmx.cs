@@ -204,7 +204,7 @@ namespace CgInput
         public bool Items_Publish(int Times_Id, int Year, int Month, int Day,short LangId)
         {
             #region NoEnglish
-            if (LangId == 1 || LangId == 2)
+           // if (LangId == 1 || LangId == 2)
             {
                 DateTime NDt = DateTime.Parse(Year.ToString() + "/" + Month.ToString() + "/" + Day.ToString() + "  00:00:00.000");
                 CgTableAdapter Cg_Ta = new CgTableAdapter();
@@ -282,82 +282,82 @@ namespace CgInput
             }
             #endregion
             #region English
-            if (LangId == 3)
-            {
-                DateTime NDt = DateTime.Parse(Year.ToString() + "/" + Month.ToString() + "/" + Day.ToString() + "  00:00:00.000");
-                CgTableAdapter Cg_Ta = new CgTableAdapter();
-                MyDB.CgDataTable crwals_Dt = Cg_Ta.Crawls_SelectAll(LangId);
-                if (crwals_Dt.Count > 0)
-                {
-                    Cg_Ta.Publish_Log_insert(NDt, User.Identity.Name, Times_Id, int.Parse(crwals_Dt[0]["Lang"].ToString()));
-                }
-                for (int i = 0; i < crwals_Dt.Rows.Count; i++)
-                {
-                    MyDB.CgDataTable Times_Dt = Cg_Ta.Times_SelectById(Times_Id);
-                    string DirDate = DateConversion.GD2JD(NDt).Replace("/", "-");
-                    string DirHour = Times_Dt[0]["Title"].ToString().Replace(":", "-");
-                    string Lang = "Arabic";
-                    if (crwals_Dt[i]["Lang"].ToString() == "1")
-                    {
-                        Lang = "Farsi";
-                    }
-                    if (crwals_Dt[i]["Lang"].ToString() == "3")
-                    {
-                        Lang = "English";
-                    }
+            //if (LangId == 3)
+            //{
+            //    DateTime NDt = DateTime.Parse(Year.ToString() + "/" + Month.ToString() + "/" + Day.ToString() + "  00:00:00.000");
+            //    CgTableAdapter Cg_Ta = new CgTableAdapter();
+            //    MyDB.CgDataTable crwals_Dt = Cg_Ta.Crawls_SelectAll(LangId);
+            //    if (crwals_Dt.Count > 0)
+            //    {
+            //        Cg_Ta.Publish_Log_insert(NDt, User.Identity.Name, Times_Id, int.Parse(crwals_Dt[0]["Lang"].ToString()));
+            //    }
+            //    for (int i = 0; i < crwals_Dt.Rows.Count; i++)
+            //    {
+            //        MyDB.CgDataTable Times_Dt = Cg_Ta.Times_SelectById(Times_Id);
+            //        string DirDate = DateConversion.GD2JD(NDt).Replace("/", "-");
+            //        string DirHour = Times_Dt[0]["Title"].ToString().Replace(":", "-");
+            //        string Lang = "Arabic";
+            //        if (crwals_Dt[i]["Lang"].ToString() == "1")
+            //        {
+            //            Lang = "Farsi";
+            //        }
+            //        if (crwals_Dt[i]["Lang"].ToString() == "3")
+            //        {
+            //            Lang = "English";
+            //        }
 
-                    DirectoryInfo CrDr = new DirectoryInfo(ConfigurationManager.AppSettings["FilesPath"].ToString() + Lang + "\\" + DirDate + "\\" + DirHour + "\\");
-                    if (!CrDr.Exists)
-                    {
-                        CrDr.Create();
-                    }
-                    string FileName = CrDr + "\\" + crwals_Dt[i]["FILENAME"].ToString() + ".txt";
+            //        DirectoryInfo CrDr = new DirectoryInfo(ConfigurationManager.AppSettings["FilesPath"].ToString() + Lang + "\\" + DirDate + "\\" + DirHour + "\\");
+            //        if (!CrDr.Exists)
+            //        {
+            //            CrDr.Create();
+            //        }
+            //        string FileName = CrDr + "\\" + crwals_Dt[i]["FILENAME"].ToString() + ".txt";
 
-                    FileStream Fst = null;
+            //        FileStream Fst = null;
 
-                    Fst = File.Create(FileName);
-                    Fst.Close();
-                    StreamWriter Sw = new StreamWriter(FileName, false, System.Text.Encoding.UTF8);
-                    MyDB.CgDataTable Cg_Dt = Cg_Ta.Items_select_NoDeleted(int.Parse(crwals_Dt[i]["id"].ToString()), Times_Id, NDt);
-                    List<Items> ItemsList = new List<Items>();
-                    for (int j = 0; j < Cg_Dt.Rows.Count; j++)
-                    {
-                        Items Itm = new Items();
-                        Itm.COLOR = Cg_Dt[j]["COLOR"].ToString();
-                        Itm.CRAWL_ID = int.Parse(Cg_Dt[j]["CRAWL_ID"].ToString());
-                        Itm.DATETIME = DateTime.Parse(Cg_Dt[j]["DATETIME"].ToString()).ToShortDateString();
-                        Itm.PRIORITY = int.Parse(Cg_Dt[j]["PRIORITY"].ToString());
-                        Itm.TEXT = Cg_Dt[j]["TEXT"].ToString().Trim();
-                        Itm.TIMES_ID = int.Parse(Cg_Dt[j]["TIMES_ID"].ToString());
-                        Itm.ROW = j + 1;
-                        Itm.ID = int.Parse(Cg_Dt[j]["ID"].ToString());
-                        if (crwals_Dt[i]["Lang"].ToString() == "1")
-                        {
-                            Itm.TEXT = ReplaceNumbers(Itm.TEXT);
-                        }
-                        else
-                        {
-                            Itm.TEXT = ReStoreNumbers(Itm.TEXT);
-                        }
+            //        Fst = File.Create(FileName);
+            //        Fst.Close();
+            //        StreamWriter Sw = new StreamWriter(FileName, false, System.Text.Encoding.UTF8);
+            //        MyDB.CgDataTable Cg_Dt = Cg_Ta.Items_select_NoDeleted(int.Parse(crwals_Dt[i]["id"].ToString()), Times_Id, NDt);
+            //        List<Items> ItemsList = new List<Items>();
+            //        for (int j = 0; j < Cg_Dt.Rows.Count; j++)
+            //        {
+            //            Items Itm = new Items();
+            //            Itm.COLOR = Cg_Dt[j]["COLOR"].ToString();
+            //            Itm.CRAWL_ID = int.Parse(Cg_Dt[j]["CRAWL_ID"].ToString());
+            //            Itm.DATETIME = DateTime.Parse(Cg_Dt[j]["DATETIME"].ToString()).ToShortDateString();
+            //            Itm.PRIORITY = int.Parse(Cg_Dt[j]["PRIORITY"].ToString());
+            //            Itm.TEXT = Cg_Dt[j]["TEXT"].ToString().Trim();
+            //            Itm.TIMES_ID = int.Parse(Cg_Dt[j]["TIMES_ID"].ToString());
+            //            Itm.ROW = j + 1;
+            //            Itm.ID = int.Parse(Cg_Dt[j]["ID"].ToString());
+            //            if (crwals_Dt[i]["Lang"].ToString() == "1")
+            //            {
+            //                Itm.TEXT = ReplaceNumbers(Itm.TEXT);
+            //            }
+            //            else
+            //            {
+            //                Itm.TEXT = ReStoreNumbers(Itm.TEXT);
+            //            }
 
-                        ItemsList.Add(Itm);
+            //            ItemsList.Add(Itm);
 
-                        if (Itm.TEXT.Trim().Length > 0)
-                        {
-                            if (Itm.TEXT.Trim() != "^^")
-                            {
-                                Sw.Write("<color " + Itm.COLOR + ">" + Itm.TEXT.Replace("$$", "\"").Trim() + "</color>");
-                            }
-                            else
-                            {
-                                Sw.WriteLine("\r\n");
-                            }
-                        }
-                    }
-                    Sw.Close();
+            //            if (Itm.TEXT.Trim().Length > 0)
+            //            {
+            //                if (Itm.TEXT.Trim() != "^^")
+            //                {
+            //                    Sw.Write("<color " + Itm.COLOR + ">" + Itm.TEXT.Replace("$$", "\"").Trim() + "</color>");
+            //                }
+            //                else
+            //                {
+            //                    Sw.WriteLine("\r\n");
+            //                }
+            //            }
+            //        }
+            //        Sw.Close();
 
-                }
-            }
+            //    }
+            //}
             #endregion
             return true;           
         }
