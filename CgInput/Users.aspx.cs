@@ -14,9 +14,16 @@ namespace CgInput
         {
             if (!Page.IsPostBack)
             {
-                MembershipUserCollection Users = Membership.GetAllUsers();
-                GridView1.DataSource = Users;
-                GridView1.DataBind();
+                if (User.Identity.Name == "1")
+                {
+                    MembershipUserCollection Users = Membership.GetAllUsers();
+                    GridView1.DataSource = Users;
+                    GridView1.DataBind();
+                }
+                else
+                {
+                    Response.Redirect("/index.html");
+                }
             }
         }
         protected string GetUserFullName(object UserName)

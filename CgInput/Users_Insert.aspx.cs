@@ -50,12 +50,6 @@ namespace CgInput
                     }
 
                 }
-
-
-
-
-
-
             }
         }
         protected void LoadMenus(string UserName)

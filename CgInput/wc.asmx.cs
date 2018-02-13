@@ -227,6 +227,10 @@ namespace CgInput
                     {
                         Lang = "English";
                     }
+                    if (crwals_Dt[i]["Lang"].ToString() == "4")
+                    {
+                        Lang = "Dari";
+                    }
 
                     DirectoryInfo CrDr = new DirectoryInfo(ConfigurationManager.AppSettings["FilesPath"].ToString() + Lang + "\\" + DirDate + "\\" + DirHour + "\\");
                     if (!CrDr.Exists)
@@ -456,6 +460,10 @@ namespace CgInput
             if (Roles.IsUserInRole(User.Identity.Name, "English"))
             {
                 retval = 3;
+            }
+            if (Roles.IsUserInRole(User.Identity.Name, "Dari"))
+            {
+                retval = 4;
             }
             return retval;
         }
